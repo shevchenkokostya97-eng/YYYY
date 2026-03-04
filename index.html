@@ -1,0 +1,356 @@
+import React, { useState } from 'react';
+import { 
+  Menu, 
+  X, 
+  ArrowRight, 
+  Users, 
+  Building, 
+  TrendingUp, 
+  CheckCircle2, 
+  Send, 
+  Instagram, 
+  Facebook, 
+  Mail, 
+  MapPin, 
+  Calendar, 
+  Star, 
+  Shield, 
+  Heart
+} from 'lucide-react';
+
+const App = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  return (
+    <div className="min-h-screen bg-[#F8F9FD] font-sans text-slate-800">
+      
+      {/* HEADER */}
+      <header className="sticky top-0 z-50 bg-white/90 backdrop-blur-md">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center h-20">
+            {/* Logo */}
+            <div className="flex items-center gap-2">
+              <div className="w-9 h-9 bg-blue-600 rounded-xl flex items-center justify-center text-white shadow-md">
+                {/* CU Logo Icon SVG */}
+                <img src="https://lh3.googleusercontent.com/d/1IRhJjAIi7CAzuFGRHZArspQPidGfRpKl" alt="Логотип" className="w-6 h-6 object-contain" />
+              </div>
+              <div className="text-xl font-bold tracking-tight text-slate-900">
+                КЕМПУС<span className="text-blue-500 font-normal ml-0.5">ОДЕСА</span>
+              </div>
+            </div>
+
+            {/* Desktop Navigation */}
+            <nav className="hidden md:flex items-center gap-8">
+              <a href="#" className="text-sm font-bold text-slate-600 hover:text-slate-900 transition-colors">Про служіння</a>
+              <a href="#" className="text-sm font-bold text-slate-600 hover:text-slate-900 transition-colors">Новини</a>
+              <a href="#" className="px-5 py-2 bg-blue-50 text-blue-600 text-sm font-bold rounded-xl hover:bg-blue-100 transition-colors">
+                Молитва
+              </a>
+              <button className="bg-[#0F172A] text-white px-7 py-2.5 rounded-full text-sm font-bold hover:bg-slate-800 transition-all shadow-lg shadow-slate-200">
+                Підтримати
+              </button>
+            </nav>
+
+            {/* Mobile menu button */}
+            <div className="md:hidden">
+              <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="text-slate-600">
+                {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
+              </button>
+            </div>
+          </div>
+        </div>
+
+        {/* Mobile Navigation */}
+        {isMenuOpen && (
+          <div className="md:hidden bg-white border-t border-gray-100 py-4 px-4 shadow-xl">
+            <div className="flex flex-col gap-4">
+              <a href="#" className="text-base font-bold text-slate-600">Про служіння</a>
+              <a href="#" className="text-base font-bold text-slate-600">Новини</a>
+              <a href="#" className="text-base font-bold text-blue-600">Молитва</a>
+              <button className="bg-[#0F172A] text-white px-6 py-3 rounded-xl text-center w-full font-bold">
+                Підтримати
+              </button>
+            </div>
+          </div>
+        )}
+      </header>
+
+      {/* HERO SECTION */}
+      <section className="pt-16 pb-24 lg:pt-24 lg:pb-32 overflow-hidden bg-[#F8F9FD]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
+            
+            {/* Hero Text */}
+            <div className="relative z-10 max-w-xl">
+              <div className="inline-flex items-center gap-2 bg-blue-100/80 px-4 py-1.5 rounded-full mb-8">
+                <div className="w-2 h-2 rounded-full bg-blue-600"></div>
+                <span className="text-[11px] font-extrabold text-blue-600 uppercase tracking-widest">Актуальне служіння: Одеса</span>
+              </div>
+              
+              <h1 className="text-5xl lg:text-[4.5rem] font-black text-slate-900 leading-[1.05] mb-6 tracking-tight">
+                Змінюємо життя <br/>
+                <span className="text-[#5B7BFE]">студентів разом</span>
+              </h1>
+              
+              <p className="text-lg text-slate-500 mb-10 leading-relaxed font-medium max-w-lg">
+                Дякуємо, що ви є частиною нашої команди! Ваша молитва та фінансова підтримка відкривають двері для Євангелія в університетах Одеси.
+              </p>
+              
+              <div className="flex flex-wrap items-center gap-6">
+                <button className="bg-[#2563EB] hover:bg-blue-700 text-white pl-8 pr-6 py-4 rounded-2xl font-bold text-[15px] transition-all shadow-xl shadow-blue-200/50 flex items-center gap-2 group">
+                  Читати останній лист
+                  <ArrowRight size={20} className="ml-1" />
+                </button>
+                
+                <div className="flex items-center gap-3">
+                  <div className="flex -space-x-2">
+                    <div className="w-10 h-10 rounded-full border-[3px] border-white bg-blue-500 flex items-center justify-center text-sm font-bold text-white">U</div>
+                    <div className="w-10 h-10 rounded-full border-[3px] border-white bg-black flex items-center justify-center text-sm font-bold text-white">P</div>
+                    <div className="w-10 h-10 rounded-full border-[3px] border-white bg-black flex items-center justify-center text-sm font-bold text-white">C</div>
+                  </div>
+                  <span className="text-sm font-bold text-slate-500">+12 партнерів</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Hero Image */}
+            <div className="relative mt-12 lg:mt-0">
+              {/* Background Blur Effect */}
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-blue-200/20 blur-[100px] rounded-full"></div>
+              
+              <div className="relative">
+                {/* White Frame Container */}
+                <div className="relative bg-white p-3 pb-3 rounded-[2.5rem] shadow-2xl transform rotate-2 mx-auto max-w-xl lg:max-w-none">
+                  <div className="rounded-[2rem] overflow-hidden h-[380px] lg:h-[420px] w-full">
+                    <img 
+                      src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80" 
+                      alt="Students Group" 
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                </div>
+                
+                {/* Floating Badge */}
+                <div className="absolute -bottom-6 left-0 lg:-left-6 bg-[#2563EB] p-6 lg:p-8 rounded-[1.5rem] shadow-2xl shadow-blue-900/20 max-w-[240px] z-20">
+                  <div className="text-3xl lg:text-4xl font-black text-white mb-1">100+</div>
+                  <div className="text-[10px] lg:text-xs font-bold text-blue-100 uppercase tracking-widest leading-tight">Студентів охоплено</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CONTENT SECTION */}
+      <section className="py-16 bg-white rounded-t-[3rem] shadow-[0_-20px_60px_-15px_rgba(0,0,0,0.05)] relative z-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          <div className="flex items-center gap-4 mb-12">
+            <div className="h-1 w-12 bg-blue-600 rounded-full"></div>
+            <h2 className="text-3xl font-bold text-slate-900">Останній молитовний лист</h2>
+          </div>
+
+          <div className="grid lg:grid-cols-12 gap-12">
+            
+            {/* Main Content Column (Left) */}
+            <div className="lg:col-span-8">
+              <div className="bg-white rounded-[2rem] p-1 border border-slate-100 shadow-sm">
+                <div className="p-8 lg:p-10">
+                  <div className="flex items-center gap-4 mb-8">
+                    <div className="bg-slate-50 p-3 rounded-2xl">
+                      <Calendar size={20} className="text-slate-400" />
+                    </div>
+                    <div className="text-sm font-medium">
+                      <span className="text-slate-900 font-bold block text-base">2 жовтня 2025</span>
+                      <span className="text-slate-500">Локація: Одеса</span>
+                    </div>
+                  </div>
+
+                  <h3 className="text-3xl lg:text-4xl font-bold text-slate-900 mb-8 leading-tight">
+                    Одеса: Нові горизонти для Англійського Клубу
+                  </h3>
+
+                  <div className="rounded-2xl overflow-hidden mb-10 h-80 lg:h-96 w-full relative group shadow-lg">
+                    <img 
+                      src="https://images.unsplash.com/photo-1531545514256-b1400bc00f31?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80" 
+                      alt="Students studying" 
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                    />
+                  </div>
+
+                  <div className="prose prose-lg text-slate-600 leading-relaxed max-w-none">
+                    <p className="mb-6">
+                      Ми з великою радістю повідомляємо, що Одеська команда Кемпус офіційно розпочала осінній сезон служіння. Наша головна стратегія на цей семестр — <strong className="text-slate-900">Англійський Клуб</strong>, який допомагає нам знайомитися з новими студентами в невимушеній атмосфері.
+                    </p>
+                    <div className="my-10 pl-8 border-l-4 border-blue-500 bg-blue-50/50 py-6 pr-6 rounded-r-2xl italic text-slate-700 text-lg">
+                      "Кожен студент в Одесі має право почути Радісну Звістку. Дякуємо, що допомагаєте нам нести це світло!"
+                    </div>
+                    <p>
+                      Також ми бачимо велику потребу в єдності команди. Нові виклики вимагають від нас ще більшої довіри Богу та один одному.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* History Section */}
+              <div className="mt-24">
+                <div className="flex items-center gap-4 mb-12">
+                  <div className="h-1 w-10 bg-indigo-500 rounded-full"></div>
+                  <h2 className="text-2xl font-bold text-slate-900">Наша історія</h2>
+                </div>
+
+                <div className="relative pl-8 border-l-2 border-slate-100 space-y-16">
+                  {/* Timeline Item 1 */}
+                  <div className="relative group">
+                    <div className="absolute -left-[41px] top-0 w-10 h-10 rounded-full bg-blue-50 border-[3px] border-white flex items-center justify-center text-blue-600 shadow-md group-hover:scale-110 transition-transform">
+                      <Star size={16} fill="currentColor" />
+                    </div>
+                    <div className="bg-white p-8 rounded-2xl border border-slate-100 shadow-sm hover:shadow-lg transition-all cursor-default">
+                      <div className="text-blue-600 font-bold mb-2 text-sm uppercase tracking-wide">Жовтень 2025</div>
+                      <h4 className="text-xl font-bold text-slate-900 mb-3">Фокус на Одесі</h4>
+                      <p className="text-slate-500">Запуск Англійського клубу та активний розвиток Одеської команди.</p>
+                    </div>
+                  </div>
+
+                  {/* Timeline Item 2 */}
+                  <div className="relative opacity-60 hover:opacity-100 transition-opacity">
+                    <div className="absolute -left-[41px] top-0 w-10 h-10 rounded-full bg-slate-50 border-[3px] border-white flex items-center justify-center text-slate-400 shadow-md">
+                      <Shield size={16} />
+                    </div>
+                    <div className="bg-white p-8 rounded-2xl border border-slate-100 shadow-sm">
+                      <div className="text-slate-400 font-bold mb-2 text-sm uppercase tracking-wide">Серпень 2022</div>
+                      <h4 className="text-xl font-bold text-slate-800 mb-3">Кемпус Дніпро & ЗСУ</h4>
+                      <p className="text-slate-500">Період служіння в Дніпрі та час випробувань, коли частина команди була в лавах ЗСУ.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Sidebar (Right) */}
+            <div className="lg:col-span-4 space-y-8">
+              
+              {/* Prayer Needs Widget */}
+              <div className="bg-white p-8 rounded-[2rem] shadow-[0_10px_40px_-10px_rgba(0,0,0,0.08)] sticky top-24 border border-slate-100">
+                <div className="flex items-center gap-3 mb-8">
+                  <div className="p-2.5 bg-blue-50 rounded-xl text-blue-600">
+                    <Heart size={24} fill="currentColor" className="text-blue-500" />
+                  </div>
+                  <h3 className="text-xl font-bold text-slate-900">Молитовні потреби</h3>
+                </div>
+
+                <div className="space-y-8">
+                  {/* Item 1 */}
+                  <div className="group">
+                    <div className="flex items-center gap-3 mb-3">
+                      <div className="bg-blue-100/50 p-1.5 rounded-lg text-blue-600 group-hover:bg-blue-100 transition-colors">
+                        <Users size={16} />
+                      </div>
+                      <span className="text-[11px] font-bold text-blue-600 uppercase tracking-wider">Студенти</span>
+                    </div>
+                    <h4 className="font-bold text-slate-900 mb-2 text-lg">Англійський Клуб</h4>
+                    <p className="text-sm text-slate-500 leading-relaxed">За успішний старт та глибокі розмови про віру зі студентами.</p>
+                  </div>
+
+                  {/* Item 2 */}
+                  <div className="group">
+                    <div className="flex items-center gap-3 mb-3">
+                      <div className="bg-indigo-100/50 p-1.5 rounded-lg text-indigo-600 group-hover:bg-indigo-100 transition-colors">
+                        <Building size={16} />
+                      </div>
+                      <span className="text-[11px] font-bold text-indigo-600 uppercase tracking-wider">Команда</span>
+                    </div>
+                    <h4 className="font-bold text-slate-900 mb-2 text-lg">Нове приміщення</h4>
+                    <p className="text-sm text-slate-500 leading-relaxed">За Боже керівництво у пошуку офісу та залу для зустрічей в Одесі.</p>
+                  </div>
+
+                  {/* Item 3 */}
+                  <div className="group">
+                    <div className="flex items-center gap-3 mb-3">
+                      <div className="bg-emerald-100/50 p-1.5 rounded-lg text-emerald-600 group-hover:bg-emerald-100 transition-colors">
+                        <TrendingUp size={16} />
+                      </div>
+                      <span className="text-[11px] font-bold text-emerald-600 uppercase tracking-wider">Розвиток</span>
+                    </div>
+                    <h4 className="font-bold text-slate-900 mb-2 text-lg">Фінансова стабільність</h4>
+                    <p className="text-sm text-slate-500 leading-relaxed">За нових партнерів для досягнення цілей РКП та підтримку місії.</p>
+                  </div>
+                </div>
+
+                <button className="w-full mt-10 bg-[#2563EB] hover:bg-blue-700 text-white py-4 rounded-xl font-bold transition-all shadow-lg shadow-blue-200 flex items-center justify-center gap-2 group">
+                  Я буду молитися
+                  <CheckCircle2 size={18} className="text-blue-200 group-hover:text-white transition-colors" />
+                </button>
+              </div>
+
+              {/* Feedback Form Card */}
+              <div className="bg-[#0F172A] p-8 rounded-[2rem] shadow-xl text-white relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/10 rounded-full blur-3xl"></div>
+                
+                <h3 className="text-xl font-bold mb-3 relative z-10">Маєте слово підбадьорення?</h3>
+                <p className="text-slate-400 text-sm mb-8 relative z-10">Напишіть нам коротке повідомлення — це дуже надихає команду!</p>
+                
+                <div className="space-y-4 relative z-10">
+                  <div>
+                    <input 
+                      type="text" 
+                      placeholder="Ваше ім'я" 
+                      className="w-full bg-slate-800/50 border border-slate-700/50 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-blue-500 focus:bg-slate-800 focus:ring-1 focus:ring-blue-500 transition-all placeholder:text-slate-500 text-white"
+                    />
+                  </div>
+                  <div>
+                    <textarea 
+                      placeholder="Повідомлення..." 
+                      rows={4}
+                      className="w-full bg-slate-800/50 border border-slate-700/50 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-blue-500 focus:bg-slate-800 focus:ring-1 focus:ring-blue-500 transition-all placeholder:text-slate-500 text-white resize-none"
+                    ></textarea>
+                  </div>
+                  <button className="w-full bg-white text-slate-900 hover:bg-blue-50 py-3.5 rounded-xl font-bold transition-colors shadow-lg">
+                    Надіслати
+                  </button>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FOOTER */}
+      <footer className="bg-white border-t border-gray-100 py-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-8">
+          
+          <div className="max-w-xs text-center md:text-left">
+             <div className="flex items-center justify-center md:justify-start gap-2 mb-4">
+              <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center text-white">
+                {/* CU Logo Icon SVG */}
+                <img src="https://lh3.googleusercontent.com/d/1IRhJjAIi7CAzuFGRHZArspQPidGfRpKl" alt="Логотип" className="w-6 h-6 object-contain" />
+              </div>
+              <div className="text-lg font-bold text-slate-900">
+                КЕМПУС<span className="text-blue-600 font-normal ml-0.5">ОДЕСА</span>
+              </div>
+            </div>
+            <p className="text-slate-500 text-sm">
+              Служіння студентам через благовістя, учнівство та лідерство.
+            </p>
+          </div>
+
+          <div className="flex gap-6">
+            <a href="#" className="text-slate-400 hover:text-blue-500 transition-colors"><Send size={20} /></a>
+            <a href="#" className="text-slate-400 hover:text-pink-500 transition-colors"><Instagram size={20} /></a>
+            <a href="#" className="text-slate-400 hover:text-blue-600 transition-colors"><Facebook size={20} /></a>
+            <a href="#" className="text-slate-400 hover:text-slate-900 transition-colors"><Mail size={20} /></a>
+          </div>
+
+          <div className="text-center md:text-right text-xs text-slate-400 font-medium">
+            <div className="text-slate-900 font-bold mb-1">Україна для Христа</div>
+            <div>МОЛИТОВНИЙ БЮЛЕТЕНЬ © 2026</div>
+          </div>
+
+        </div>
+      </footer>
+    </div>
+  );
+};
+
+export default App;
